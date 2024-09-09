@@ -1,2 +1,7 @@
 # JavaScript Advanced 2024
-JS Advanced Module in SoftUni
+
+This is JS Advanced Module in SoftUni. It contains the following courses:
+- JS Advanced
+--------------
+- JS Applications
+  
