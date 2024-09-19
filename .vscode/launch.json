@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Launch Program",
             "skipFiles": ["<node_internals>/**"],
-            "program": "${workspaceFolder}/01_syntax_functions_and_statements/Exe/07-cookingByNumber.js"
+            "program": "${workspaceFolder}/app.js"
         }
     ]
 }
