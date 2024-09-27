@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------------
-// -----------------------------------------------------------------------------------
 // !!!!!!!!!!!!!!!!!!!!!!! ЦЯЛОТО СЪДЪРЖАНИЕ НА DOM Е СТРИНГОВО !!!!!!!!!!!!!!!!!!!!!!
+// -----------------------------------------------------------------------------------
 //
 //                          DOM Manipulations
 // - HTML DOM allows JS to change the content of HTML elements:
@@ -12,9 +12,9 @@
 //  !!! разликата между .innerHTML и .textContent е ако даденият елемент има childElements !!!
 //  !!! ако ИМА childElements => innerHTML променя цялото съдържание(+децата) на елемента  !!!
 //  !!! ако НЯМА childElements => функционално двете извършват едно и също                 !!!
-
 // -----------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------
+//
 //                          Targeting Elements
 // - These method return a REFERENCE to the element, which can be manipulated with JS:
 //  .getElementById()           => by ID (MOST USABLE). ID is ATTRIBUTE, which should be UNIQUE;
@@ -30,6 +30,43 @@
 //      "input[name='login']"   - <input> with name "login";
 //
 //  - Колекциите, които получаваме НЕ СА масиви, но можем да ги обхождаме с индексиращ оператор []
+// -----------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------
+//
+//                          Parents and Child Elements
+//  - every DOM Element has a PARENT. The very first Parent is <html>; 2nd is <body>;
+//  - Parents can be accessed by property:
+//      .parentElement => test.parentElement
+//      .parentNode
+//
+//  - Children can be accessed with index operator:
+//      document.getElementByTagName('p')[0];
+// -----------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------
+//
+//                          Control Content via Visibility
+//  - content can be HIDDEN or REVEALED by changing its display CSS style
+//  - HIDE an element:
+//      element.style.dispaly = 'none';
+//
+//  - REVEAL an element => set display to anything !== 'none
+//      element.style.dispaly = ''; // can be 'inline', 'block', etc.
+// -----------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------
+//
+//                          Match n-th Child
+//  - we can target an element based on its relation to other similar elements:
+//      row or column in a table;
+//      list item, etc
+//  - can be done by
+//      INDEX:
+//          const list = document.getElementsByTagName('ul')[0];    => first <ul> on the page
+//          const thirdLi = list.getElementsByTagName('li')[2];     => third <li> inside the selected <ul
+//      CSS Selector:
+//          const thirdLi = document.querySelector('ul li:nth-child(3)'); => third <li> inside the first <ul> on the page
+// -----------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------
+//
 
 let counterHello = 0;
 
