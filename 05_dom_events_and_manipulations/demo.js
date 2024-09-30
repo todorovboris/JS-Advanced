@@ -14,6 +14,59 @@
 
 //  -   !!! Elements are created IN MEMORY - they DO NOT EXIST on the page !!!
 //  -   !!! To became visible, they must be APPENDED to teh DOM tree       !!!
-
+//
+// ------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------
+//
+//                          The DOM EVENT / Event Object and Types
+//  - когато нещо се случи в браузъра и има закачен слушател(функция) към това нещо, браузърът ще изпълни съответния слушател(функция)
+//  - при изпълнението браузърът ни дава параметър, наричан Event Object => съдържа цялата информация, свързана с този слушател
+//
+//  - Еvent Types in DOM API:
+//      MOUSE Events:
+//      - click
+//      - mouseover
+//      - mouseout
+//      - mousedown
+//      - mouseup
+//
+//      TOUCH Events:
+//      - touchstart
+//      - touchend
+//      - touchmove
+//      - touchcancel
+//
+//      DOM/UI Events:
+//      - load
+//      - unload
+//      - resize
+//      - dragstart / drop
+//
+//      KEYBOARD Events:
+//      - keydown
+//      - keyup
+//      - keypress
+//
+//      FOCUS Evenets:
+//      - focus (got focus)
+//      - blur (lost focus)
+//
+//      FORM Events:
+//      - input
+//      - change
+//      - submit
+//      - reset
+//
+//
+//  - Event Handler
+//      Three ways to register for an Event:
+//      - with HTML Attributes;
+//      - using DOM element properties
+//      - using DOM Evenet handler => добавя се чрез метод (PREFERED):
+//          htmlRef.addEventListener('x', y); => x - вид  Евент; у - референция към функцията-слушател
+//          htmlRef.removeEventListener('x', y);
+//
+//
+//
 // ------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------
