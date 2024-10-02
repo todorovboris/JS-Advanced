@@ -2,9 +2,9 @@
 //                          DOM Manipulations
 //      We can do the following thins with HTML elements dynamically:
 //  -   elm.remove()            => премахва го от неговия реодител, т.е. го премахва от екрана;
-//  -   elm.appendChild(elm2)   => към elm В КРАЯ, добавяме дете с референция към HTML елемента elm2;
-//  -   elm.prepend(elm3)       => към elm В НАЧАЛОТО, добавяме дете с референция към HTML елемента elm3;
-//  -   еlm.replaceChild(newChild, oldChild)    => земеня референцията на едното дете с референцията на другото;
+//  -   parent.appendChild(elm2)   => към elm В КРАЯ, добавяме дете с референция към HTML елемента elm2;
+//  -   parent.prepend(elm3)       => към elm В НАЧАЛОТО, добавяме дете с референция към HTML елемента elm3;
+//  -   parent.replaceChild(newChild, oldChild)    => земеня референцията на едното дете с референцията на другото;
 //
 //  -   let li = document.createElement('li');  => factory function, на която подаваме вида на елемента(като стринг), който искаме да създадем
 //      let p = document.createElement('p');
@@ -29,33 +29,39 @@
 //      - mouseout
 //      - mousedown
 //      - mouseup
+//      - etc.
 //
 //      TOUCH Events:
 //      - touchstart
 //      - touchend
 //      - touchmove
 //      - touchcancel
+//      - etc.
 //
 //      DOM/UI Events:
 //      - load
 //      - unload
 //      - resize
 //      - dragstart / drop
+//      - etc.
 //
 //      KEYBOARD Events:
 //      - keydown
 //      - keyup
 //      - keypress
+//      - etc.
 //
 //      FOCUS Evenets:
 //      - focus (got focus)
 //      - blur (lost focus)
+//      - etc.
 //
 //      FORM Events:
 //      - input
 //      - change
 //      - submit
 //      - reset
+//      - etc.
 //
 //
 //  - Event Handler
