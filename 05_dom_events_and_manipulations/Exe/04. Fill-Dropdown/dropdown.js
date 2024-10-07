@@ -10,9 +10,9 @@ function addItem() {
         return;
     }
 
-    newOption = document.createElement('option');
+    const newOption = document.createElement('option');
     newOption.textContent = newItemTextElm.value;
-    newOption.value = newItemValueElm.value;
+    newOption.setAttribute('value', newItemValueElm.value);
 
     // console.log(newOption);
 
