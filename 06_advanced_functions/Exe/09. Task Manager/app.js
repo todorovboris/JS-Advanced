@@ -1,65 +1,101 @@
 function solve() {
-    const addTaskFormElm = document.querySelector('form');
+    // Select input fields and sections
+    const task = document.querySelector('#task'); // Assuming the id of task title input
+    const description = document.querySelector('#description'); // Assuming the id of task description input
+    const date = document.querySelector('#date'); // Assuming the id of due date input
+    const addBtn = document.querySelector('#add'); // Assuming the id of the Add button
 
-    const boxOpenElm = document.querySelector('.wrapper section:nth-child(2) > div:nth-child(2)');
+    // const areaOpenElm = document.querySelector('.wrapper section:nth-child(2) > div:nth-child(2)');
+    const openTasksSection = document.querySelector('.wrapper section:nth-child(2) > div:nth-child(2)'); // Assuming the id of Open section
+    const inProgressTasksSection = document.querySelector('#in-progress'); // Assuming the id of In Progress section
+    const completedTasksSection = document.querySelector('.wrapper section:nth-child(4) > div:nth-child(2)'); // Assuming the id of Completed section
 
-    // const taskFieldElm = document.querySelector('#task');
-    // const descriptionFieldElm = document.querySelector('#description');
-    // const dateFieldElm = document.querySelector('#date');
-
-    // const taskField = taskFieldElm.value;
-    // const descriptionField = descriptionFieldElm.value;
-    // const dateField = dateFieldElm.value;
-
-    addTaskFormElm.addEventListener('submit', (e) => {
+    // Add event listener to the Add button
+    addBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        const taskField = document.querySelector('#task').value;
-        const descriptionField = document.querySelector('#description').value;
-        const dateField = document.querySelector('#date').value;
 
-        taskCreate(taskField, descriptionField, dateField);
+        // Validate inputs
+        if (task.value === '' || description.value === '' || date.value === '') {
+            return; // Do nothing if any field is empty
+        }
+
+        // Create task article
+        const taskArticle = document.createElement('article');
+
+        // Create and append the title, description, and due date
+        const titleElement = document.createElement('h3');
+        const descriptionElement = document.createElement('p');
+        const dueDateElement = document.createElement('p');
+
+        titleElement.textContent = task.value;
+        descriptionElement.textContent = `Description: ${description.value}`;
+        dueDateElement.textContent = `Due Date: ${date.value}`;
+
+        // Create the action div with Start and Delete buttons
+        const actionsDiv = document.createElement('div');
+        const startButton = document.createElement('button');
+        const deleteButton = document.createElement('button');
+
+        startButton.textContent = 'Start';
+        deleteButton.textContent = 'Delete';
+
+        actionsDiv.className = 'flex'; // Add a class to style it if necessary
+        startButton.className = 'green'; // Add a class to style it if necessary
+        deleteButton.className = 'red'; // Add a class to style it if necessary
+
+        // Append buttons to actionsDiv
+        actionsDiv.append(startButton);
+        actionsDiv.append(deleteButton);
+
+        // Append all elements to taskArticle
+        taskArticle.appendChild(titleElement);
+        taskArticle.appendChild(descriptionElement);
+        taskArticle.appendChild(dueDateElement);
+        taskArticle.appendChild(actionsDiv);
+
+        // Append the task to the Open section
+        openTasksSection.appendChild(taskArticle);
+
+        // Clear input fields
+        task.value = '';
+        description.value = '';
+        date.value = '';
+
+        // Add event listeners to Start and Delete buttons
+        startButton.addEventListener('click', () => moveToInProgress(taskArticle));
+        deleteButton.addEventListener('click', () => deleteTask(taskArticle));
     });
 
-    function taskCreate(taskField, descriptionField, dateField) {
-        const newSection = document.createElement('article');
-        const newH3 = document.createElement('h3');
-        const newP1 = document.createElement('p');
-        const newP2 = document.createElement('p');
+    function moveToInProgress(taskArticle) {
+        // Remove the Start button and add a Finish button
+        const actionDiv = taskArticle.querySelector('.flex');
+        const startButton = actionDiv.querySelector('.green');
+        const finishButton = document.createElement('button');
 
-        newH3.textContent = taskField;
-        newP1.textContent = descriptionField;
-        newP2.textContent = dateField;
+        finishButton.textContent = 'Finish';
+        finishButton.className = 'orange';
 
-        newSection.append(newH3, newP1, newP2);
+        // Replace Start button with Finish button
+        actionDiv.replaceChild(finishButton, startButton);
 
-        const actionsEl = document.createElement('div');
-        const btnProgress = document.createElement('button');
-        const btnDelete = document.createElement('button');
+        // Move task to the In Progress section
+        inProgressTasksSection.appendChild(taskArticle);
 
-        actionsEl.className = 'flex';
-        btnProgress.textContent = 'Start';
-        btnProgress.className = 'green';
-        btnDelete.textContent = 'Delete';
-        btnDelete.className = 'red';
-
-        btnDelete.addEventListener('clicl', (e) => {
-            taskDelete(newSection);
-        });
-
-        actionsEl.append(btnProgress, btnDelete);
-
-        newSection.append(newH3, newP1, newP2, actionsEl);
-
-        boxOpenElm.append(newSection);
-
-        console.log(newSection);
+        // Add event listener to Finish button
+        finishButton.addEventListener('click', () => moveToCompleted(taskArticle));
     }
 
-    function taskDelete(newSection) {
-        newSection.remove();
+    function deleteTask(taskArticle) {
+        // Remove the task article from the DOM
+        taskArticle.remove();
     }
 
-    // taskFieldElm.value = '';
-    // descriptionFieldElm.value = '';
-    // dateFieldElm.value = '';
+    function moveToCompleted(taskArticle) {
+        // Remove the action div
+        const actionDiv = taskArticle.querySelector('.flex');
+        actionDiv.remove();
+
+        // Move task to the Completed section
+        completedTasksSection.appendChild(taskArticle);
+    }
 }
