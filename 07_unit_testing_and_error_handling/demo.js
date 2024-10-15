@@ -70,6 +70,7 @@ console.log(devide(22, 11));
 
 //  - използване на Mocha и Chai за автоматизиране на тестовете:
 //      1) за ВСЕКИ проект се инсталират, използвайки терминал-а в папката на самия проект:
+//          • npm init -y
 //          • npm install -D mocha
 //          • npm install -D chai
 //      2) добавяме "type": "module" в package.json файла; КАКТО И преименуваме следния ред на: "test": "mocha"
