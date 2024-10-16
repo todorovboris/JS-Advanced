@@ -108,6 +108,8 @@ console.log('access the diameter after initialize the r: ', myCircle.d);
 myCircle.d = 8;
 console.log('access the radius after initialize the d : ', myCircle.r);
 console.log('access the diameter after initialize the d: ', myCircle.d);
+console.log('----------------------------');
+console.log('');
 
 // -----------------------------------------------------------------------------------
 
@@ -136,3 +138,26 @@ console.log('access the diameter after initialize the d: ', myCircle.d);
 //          • hasAttribute() - проверява дали даден атрибут съществува, връща true/false;
 //
 //          • dataset - специален начин за създаване на атрибут; създаваме наш си атрибут;
+
+// -----------------------------------------------------------------------------------
+
+//  - Map
+let map = new Map();
+
+map.set('key1', '1'); /// добавяне на елементи към Мап-а
+map.set('key2', 2); /// добавяне на елементи към Мап-а
+map.set(3, 'Boris'); /// добавяне на елементи към Мап-а;
+
+console.log('value of key "key1": ', map.get('key1')); // връща стойността на искания ключ
+console.log('value of key "3": ', map.get(3)); // връща стойността на искания ключ;
+console.log('map size: ', map.size); // връща броя на елементи в мапа
+
+console.log('do we have a key "3" => ', map.has(3)); //проверява и връща дали в мап имаме търсеното key
+console.log('do we have a key "Boris" => ', map.has('Boris')); //проверява и връща дали в мапа имаме търсеното key
+
+// map.delete(2);  //изтрива key-value двойката с посочения key
+// map.clear();    //изтрива целият мап
+
+let arr = Array.from(map.entries()); //връща всяка двойка key-value в масив;
+let keys = Array.from(map.keys()); //връща всички key в масив;
+let values = Array.from(map.values()); //връща всички value в масив;
