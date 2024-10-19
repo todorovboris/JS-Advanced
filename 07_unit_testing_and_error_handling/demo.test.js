@@ -12,6 +12,6 @@ describe('Adding numbers', function () {
 
     // SECOND TEST
     it('doesnt work with strings', () => {
-        expect(() => addNumbers('a', 'b').to.throw());
+        expect(() => addNumbers('a', 'b').to.throw('...'));
     });
 });
