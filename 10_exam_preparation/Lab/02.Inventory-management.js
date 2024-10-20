@@ -63,22 +63,6 @@ class InventoryManager {
         }
 
         return result.join('\n');
-
-        // let result = 'Current Inventory:\n';
-        // this.items.forEach((item, key) => {
-        //     result += `${key}: ${item}\n`;
-        // });
-
-        // let outArr = [];
-        // if (this.outOfStock.size > 0) {
-        //     this.outOfStock.forEach((item) => {
-        //         outArr.push(item);
-        //     });
-
-        //     result += `Out of Stock: ${outArr.join(', ')}`;
-        // }
-
-        // return result.trim();
     }
 
     _validQuantity(qty) {
