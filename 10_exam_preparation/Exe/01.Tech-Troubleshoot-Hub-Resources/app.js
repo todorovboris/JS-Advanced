@@ -61,7 +61,7 @@ function solution() {
         const continueBtn = document.createElement('button');
         continueBtn.className = 'continue-btn';
         continueBtn.textContent = 'Continue';
-        continueBtn.addEventListener('click', () => creaetePending(li));
+        continueBtn.addEventListener('click', () => creaetePending(li, employee, category, urgency, team, description));
 
         li.appendChild(editBtn);
         li.appendChild(continueBtn);
@@ -80,7 +80,7 @@ function solution() {
         li.remove();
     }
 
-    function creaetePending(li) {
+    function creaetePending(li, employee, category, urgency, team, description) {
         li.querySelector('.edit-btn').remove();
         li.querySelector('.continue-btn').remove();
 
